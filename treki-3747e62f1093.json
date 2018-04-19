@@ -1,0 +1,12 @@
+{
+  "type": "service_account",
+  "project_id": "treki-hacktiv8-2018",
+  "private_key_id": "3747e62f10935a2df6611305a74631d46dd32e48",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCtq7SSCOVTIW2H\nzjXPwoc6ZdT0ZPtVNZvQu/fOIhup86jfPbaqmJZ3GiFcFmqay2BzlJ4Ji1s5Clf2\n5UUW86XTZJCCnl1KsqJXiVL2C/7EpNsvG4z8kUMrRn01uVm+u+pXotdommyOtWZT\nbi5XvWjf2uY6UAhKAp6kHgwCgIWheezIMK9BzBOF899HqXyrP0V4sxlRjghOFCqt\nmRnglRnO1CvZzpu/tDWeTNuxMjqpKPwOWRDT4UV6rDsYS+9KCq5jm/LiqidHpjrK\n2wHdAr/dov/awIlpFxnh2qpkkM30QvDJT25MF+YSxQGQbb/N6/dUPkeN/HDbrvbB\nPywFqN+nAgMBAAECggEACShK+YGjPfKUSPCUS86GZ4uOYrifEWDQmigJ1VeyZ7q5\nBn8a46dEv9D5PgF8ljRFHghnG4+6kVO8oasjLSZPHHTACJ3QbiuPKIMi2bsg2ujq\nbx3KcwLh13qnCC8sI++FWCD2WhtSarqhQ6Lv/0u10kqY5dg/J6U4YjpSCHZoasQ3\nCy8gcAqbhokWQr83Kx/PxY27TXSWUO91kjj20dJFisZu+jjY6o3r0sfKN1DzWGkW\nj7TZA0fTRNiEIpHu9HDPBDNv8cCamsSabb7h3K/KQs41V2NCoGqbXlZZFqDx+KSt\nqSrr/zd5Tpx6iYGyGcT4I6J8PFlqFYxax4VQZZ5J0QKBgQDpXp9HqqipPrD5RzbF\ngNHxGAJXKY1mp2EwfC9qZ/LWeq5r/lhacUQ9qDTW7F0iIeKJ70yO/DD4EQsQBwWg\n1qfDh14WOIU0zOZ6TtrjEnZrgj0p0PJUyHKNMsRD3RGUMtckRSoYWhdHZ3mhd9TE\nRzMOBoaUHfTpfaI1OjKXyjT/OQKBgQC+gxBiGI4M05/iri7Du/+GNRGX3eFJjfj+\n9THM5blZc2laww2EyhD37xwE7xIwQc3knd7LkYu3BwTIwVxRrr4zdY5go3xcfKKS\n8q4kNNTCmFtH7lnSqq0Cv7Pj7QKs4jDhvVFtMlHGJeoreY16ybxmYcv1mrniXdgu\n9GkpdiX13wKBgQDO3MZZ86fv5hdf0EV3yxnOGZcxhi7GWQZowRwSuTPj9PmZ1uqg\nuRhhgzHbdceUku7JkCqP8HLD4e+pdGAD02MAioTXM6C4TgzbS/zxHZOE9vyajZHR\nn6ETEnYxJcwITwywJPMMhQdvjwSdIaijl+1kuFog/3DybCAWCJGCRYa22QKBgQCy\nK0roIwS+VDBkQ/gyUCDR99GjUPu/2Ynzj4ZqlLF6SahPHLoI5R1ncnSm3JsLDI+s\n7kQN5+ldW7AKvGNFdQImiBuGn37P1DQK7/ESpWIRN4GuzOeuULaLKpPnZqIo40VJ\n6M89K2E0ygKtc/lvyzlqGq4v3OtZG+DxUN0EzJ0FywKBgCLguJd0/Fd7v790SxpC\nw6KbPTD6Q2hO0VuqSUeZW5ETiLPo2sEG+tC5201D3195cqmcKqtJSkGUK6AmiUz6\nzJUl40QevzElwNMgOwcIFdvvQKdk0kGPg8TY66tqm9mRbL9pfpSa84k+J9+XAP3d\nIahAlSHkk1pCozDEugBBsX6J\n-----END PRIVATE KEY-----\n",
+  "client_email": "treki-hacktiv8-2018@appspot.gserviceaccount.com",
+  "client_id": "102566715045939470644",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://accounts.google.com/o/oauth2/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/treki-hacktiv8-2018%40appspot.gserviceaccount.com"
+}
