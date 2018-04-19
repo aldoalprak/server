@@ -27,8 +27,9 @@ module.exports = {
   },
 
   update: (req, res) => {
-    let { name, email } = req.body
-    firebaseController.set(`users/${req.params.id}`,{ name, email })
+    // let { name, email } = req.body
+    let updatedAt = Date.now();
+    firebaseController.set(`users/${req.params.id}`,{ ...req.body, updatedAt })
       .then((data) => {
         res.status(200).json({
           message: 'Succeed updating user'
@@ -58,8 +59,10 @@ module.exports = {
   },
 
   create: (req, res) => {
-    let { name, email } = req.body
-    firebaseController.push('users', { name, email })
+    let { name, email } = req.body;
+    updatedAt = Date.now();
+    createdAt = Date.now();
+    firebaseController.push('users', { name, email, updatedAt, createdAt })
       .then(() => {
         res.status(201).json({
           message: 'Succeed adding new user'

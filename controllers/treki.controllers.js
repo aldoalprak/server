@@ -32,16 +32,9 @@ module.exports = {
 
   update: (req, res) => {
     logger.info(`Update treki device id ${req.params.id}`);
-    let { device_id, name, image_url, user_id, location } = req.body
-    firebaseController.set(`treki/${req.params.id}`,
-    { 
-      device_id,
-      name,
-      image_url,
-      user_id,
-      location,
-      status: true
-    })
+    let updatedAt = Date.now();
+    // let { device_id, name, image_url, user_id, location } = req.body
+    firebaseController.set(`treki/${req.params.id}`,{ ...req.body, updatedAt })
       .then((data) => {
         res.status(200).json({
           message: 'Succeed updating treki device'
@@ -75,6 +68,8 @@ module.exports = {
 
   create: (req, res) => {
     logger.info(`Create new treki device`);
+    let createdAt = Date.now();
+    let updatedAt = Date.now();
     let { device_id, name, image_url, user_id, location } = req.body;
     // location = JSON.parse(location);
     firebaseController.push('treki', 
@@ -84,7 +79,9 @@ module.exports = {
       image_url,
       user_id,
       location,
-      status: true
+      status: true,
+      updatedAt,
+      createdAt
     })
       .then(() => {
         res.status(201).json({

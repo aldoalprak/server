@@ -7,8 +7,10 @@ Database using Firebase Real Time Database
 Every user has their own unique ID provided by firebase (ex: "-LARdlvlVYAZd_HlbxSS")
 ```json
 {
-  "name": "Fadhil", // string
-  "email": "fadhilmch@xys.com" // string
+  "name": "Fadhil",
+  "email": "fadhilmch@xys.com",
+  "createdAt": "",
+  "updatedAt": ""
 }
 ```
 
@@ -25,7 +27,9 @@ Every Treki has their own unique ID provided by firebase (ex: "-LARdlvlVYAZd_Hlb
     "latitude": 37.785834,
     "longitude": -122.406417,
   },
-  "status": true
+  "status": true,
+  "createdAt": "",
+  "updatedAt": ""
 }
 ```
 
