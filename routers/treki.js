@@ -21,7 +21,7 @@ router.delete('/:id', destroy);
 
 router.put('/:id/location', updateLocation);
 
-router.put('/device_id/:id', updateOtherTrekiLocation);
+router.put('/device_id/:device_id', updateOtherTrekiLocation);
 
 router.get('/user_id/:user_id', getTrekiByUserId);
 

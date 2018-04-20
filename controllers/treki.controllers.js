@@ -136,7 +136,10 @@ module.exports = {
     logger.info(`Verify device id ${req.params.device_id}`);
     firebaseController.getKeyByParameterValue('treki','device_id',req.params.device_id)
       .then((key) => {
+        console.log(key)
+        console.log(req.body.location)
         if(key !== null) {
+          // firebaseController.set(`treki/${key}/location`, JSON.parse(req.body.location))
           firebaseController.set(`treki/${key}/location`, req.body.location)
             .then(() => {
               res.status(200).json({
