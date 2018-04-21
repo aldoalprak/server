@@ -140,7 +140,10 @@ module.exports = {
         console.log(req.body.location)
         if(key !== null) {
           // firebaseController.set(`treki/${key}/location`, JSON.parse(req.body.location))
-          firebaseController.set(`treki/${key}/location`, req.body.location)
+          firebaseController.update(`treki/${key}`, {
+            location: req.body.location,
+            updatedAt: Date.now()
+          })
             .then(() => {
               res.status(200).json({
                 message: "Succeed updating location"

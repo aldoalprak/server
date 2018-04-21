@@ -37,6 +37,21 @@ class FirebaseController {
     });
   }
 
+  update(key, value) {
+    logger.info(`Update key ${key} to ${JSON.stringify(value)} on firebase database`);
+    return new Promise((resolve, reject) => {
+      this.db.ref(key).update(value)
+        .then(() => {
+          console.log('masuk')
+          resolve()
+        })
+        .catch((err) => {
+          logger.error("Cannot update key value to firebase database");
+          reject(err);
+        });
+    });
+  }
+
   push(key, value) {
     logger.info(`Push new value ${JSON.stringify(value)} for key ${key} on firebase database`);
     return new Promise((resolve, reject) => {
