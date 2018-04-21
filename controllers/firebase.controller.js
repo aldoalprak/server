@@ -85,7 +85,9 @@ class FirebaseController {
         let resultArray = new Array();
         snapshot.forEach((childSnapshot) => {
           if(childSnapshot.val()[parameter] === value) {
-            resultArray.push(childSnapshot.val());
+            let tempObj = childSnapshot.val();
+            tempObj.id = childSnapshot.key
+            resultArray.push(tempObj);
           };
         });
         resolve(resultArray);
