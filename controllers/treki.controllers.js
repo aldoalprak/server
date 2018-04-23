@@ -163,7 +163,8 @@ module.exports = {
     firebaseController.getKeyByParameterValue('treki','device_id',req.params.device_id)
       .then((key) => {
         if(key !== null) {
-          firebaseController.set(`treki/${key}/location`, req.body.location)
+          let updatedAt = Date.now();
+          firebaseController.set(`treki/${key}`, {location: req.body.location, updatedAt})
             .then(() => {
               res.status(200).json({
                 message: "Succeed updating location"
