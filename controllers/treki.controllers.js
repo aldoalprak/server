@@ -99,6 +99,37 @@ module.exports = {
       });
   },
 
+  createv2: (req, res) => {
+    logger.info(`Create new treki device 2`);
+    let createdAt = Date.now();
+    let updatedAt = Date.now();
+    let { device_id, name, user_id, location } = req.body;
+    // location = JSON.parse(location);
+    firebaseController.push('treki', 
+    { 
+      name,
+      device_id,
+      image_url : req.file.cloudStoragePublicUrl,
+      user_id,
+      location,
+      status: false,
+      updatedAt,
+      createdAt
+    })
+      .then(() => {
+        res.status(201).json({
+          message: 'Succeed adding new treki device'
+        });
+      })
+      .catch((err) => {
+        logger.error(`Cannot create new treki device`);
+        res.status(500).json({
+          message: 'Error adding new treki device',
+          err
+        });
+      });
+  },
+
   findTrekiById: (req, res) => {
     logger.info(`Get treki device id ${req.params.id}`);
     firebaseController.get(`treki/${req.params.id}`)

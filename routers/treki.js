@@ -10,11 +10,22 @@ const {
   updateLocation,
   updateOtherTrekiLocation,
   getTrekiByUserId,
+  createv2
 } = require('../controllers/treki.controllers');
 const { pushNotification } = require('../middlewares/notification')
+const {sendUploadToGCS} = require('../middlewares/uploadGCS') 
+const multer = require('multer')
+const upload = multer({
+  storage  : multer.memoryStorage(),
+  limits   : {
+    fileSize: 10*1024*1024
+ } 
+})
 
+router.post('/createv2',upload.single('image'), sendUploadToGCS ,createv2);
 router.get('/', findAll);
 router.post('/', create);
+
 
 router.get('/:id', findTrekiById);
 router.put('/:id', update);
