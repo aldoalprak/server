@@ -9,8 +9,9 @@ const {
   update,
   updateLocation,
   updateOtherTrekiLocation,
-  getTrekiByUserId
+  getTrekiByUserId,
 } = require('../controllers/treki.controllers');
+const { pushNotification } = require('../middlewares/notification')
 
 router.get('/', findAll);
 router.post('/', create);
@@ -21,8 +22,9 @@ router.delete('/:id', destroy);
 
 router.put('/:id/location', updateLocation);
 
-router.put('/device_id/:device_id', updateOtherTrekiLocation);
+router.put('/device_id/:device_id', pushNotification, updateOtherTrekiLocation);
 
 router.get('/user_id/:user_id', getTrekiByUserId);
+
 
 module.exports = router;
