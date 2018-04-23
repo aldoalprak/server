@@ -119,7 +119,7 @@ module.exports = {
   
   updateState: (req, res) => {
     logger.info(`Update state for treki device id ${req.params.id}`);
-    firebaseController.update(`treki/${req.params.id}`, {state: req.body.state})
+    firebaseController.update(`treki/${req.params.id}`, {status: req.body.status})
       .then(() => {
         res.status(200).json({
           message: 'Succeed updating treki state'

@@ -14,6 +14,8 @@ class FirebaseController {
     logger.info(`Get value for key ${key} from firebase database`)
     return new Promise((resolve, reject) => {
       this.db.ref(key).once('value', (snapshot) => {
+          let tempObj = snapshot.val();
+          tempObj.id = snapshot.key
           resolve(snapshot.val());
       }, (err) => {
         logger.error("Cannot get key value from firebase database");

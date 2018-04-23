@@ -22,7 +22,7 @@ router.put('/:id', update);
 router.delete('/:id', destroy);
 
 router.put('/:id/location', updateLocation);
-router.put('/:id/state', updateState);
+router.put('/:id/status', updateState);
 
 router.put('/device_id/:device_id', pushNotification, updateOtherTrekiLocation);
 
