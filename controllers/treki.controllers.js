@@ -136,7 +136,8 @@ module.exports = {
 
   updateLocation: (req, res) => {
     logger.info(`Update location for treki device id ${req.params.id}`);
-    firebaseController.set(`treki/${req.params.id}/location`, req.body.location)
+    let updatedAt = Date.now();
+    firebaseController.update(`treki/${req.params.id}`, {location: req.body.location, updatedAt})
       .then(() => {
         res.status(200).json({
           message: 'Succeed updating treki location'
