@@ -10,6 +10,7 @@ const {
   updateLocation,
   updateOtherTrekiLocation,
   getTrekiByUserId,
+  updateState
 } = require('../controllers/treki.controllers');
 const { pushNotification } = require('../middlewares/notification')
 
@@ -21,6 +22,7 @@ router.put('/:id', update);
 router.delete('/:id', destroy);
 
 router.put('/:id/location', updateLocation);
+router.put('/:id/state', updateState);
 
 router.put('/device_id/:device_id', pushNotification, updateOtherTrekiLocation);
 

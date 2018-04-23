@@ -115,7 +115,24 @@ module.exports = {
           err
         })
       })
-  }, 
+  },
+  
+  updateState: (req, res) => {
+    logger.info(`Update state for treki device id ${req.params.id}`);
+    firebaseController.update(`treki/${req.params.id}`, {state: req.body.state})
+      .then(() => {
+        res.status(200).json({
+          message: 'Succeed updating treki state'
+        })
+      })
+      .catch((err) => {
+        logger.error(`Cannot update treki device id ${req.params.id}`);
+        res.status(500).json({
+          message: 'Error updating treki state',
+          err
+        })
+      })
+  },
 
   updateLocation: (req, res) => {
     logger.info(`Update location for treki device id ${req.params.id}`);
