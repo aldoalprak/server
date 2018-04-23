@@ -10,6 +10,8 @@ const firebaseController = new FirebaseController();
 
 const db = admin.database();
 
+const gcm = require('node-gcm');
+
 module.exports = {
 
   findAll: (req, res) => {
@@ -79,7 +81,7 @@ module.exports = {
       image_url,
       user_id,
       location,
-      status: true,
+      status: false,
       updatedAt,
       createdAt
     })
@@ -130,20 +132,20 @@ module.exports = {
           err
         })
       })
+
+    // get user id berdasarkan device id
+    // dari user id yang ada, cari di collection token utk dapetin device id nya
+    // panggil function push notification dengan kirim parameter device id yang di dapatkan tadi
+    // tambahkan kondisi2 tertentu
+
   },
 
   updateOtherTrekiLocation: (req, res) => {
     logger.info(`Verify device id ${req.params.device_id}`);
     firebaseController.getKeyByParameterValue('treki','device_id',req.params.device_id)
       .then((key) => {
-        console.log(key)
-        console.log(req.body.location)
         if(key !== null) {
-          // firebaseController.set(`treki/${key}/location`, JSON.parse(req.body.location))
-          firebaseController.update(`treki/${key}`, {
-            location: req.body.location,
-            updatedAt: Date.now()
-          })
+          firebaseController.set(`treki/${key}/location`, req.body.location)
             .then(() => {
               res.status(200).json({
                 message: "Succeed updating location"
@@ -180,5 +182,5 @@ module.exports = {
             err
           })
         })
-    }
+    },
 }
