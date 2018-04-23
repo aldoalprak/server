@@ -101,10 +101,12 @@ module.exports = {
 
   createv2: (req, res) => {
     logger.info(`Create new treki device 2`);
+    
     let createdAt = Date.now();
     let updatedAt = Date.now();
-    let { device_id, name, user_id, location } = req.body;
-    // location = JSON.parse(location);
+    let location = JSON.parse(req.body.location);
+    let { device_id, name, user_id } = req.body;
+    
     firebaseController.push('treki', 
     { 
       name,
