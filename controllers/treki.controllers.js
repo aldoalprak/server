@@ -148,11 +148,29 @@ module.exports = {
           err
         })
       })
-  }, 
+  },
+  
+  updateState: (req, res) => {
+    logger.info(`Update state for treki device id ${req.params.id}`);
+    firebaseController.update(`treki/${req.params.id}`, {status: req.body.status})
+      .then(() => {
+        res.status(200).json({
+          message: 'Succeed updating treki state'
+        })
+      })
+      .catch((err) => {
+        logger.error(`Cannot update treki device id ${req.params.id}`);
+        res.status(500).json({
+          message: 'Error updating treki state',
+          err
+        })
+      })
+  },
 
   updateLocation: (req, res) => {
     logger.info(`Update location for treki device id ${req.params.id}`);
-    firebaseController.set(`treki/${req.params.id}/location`, req.body.location)
+    let updatedAt = Date.now();
+    firebaseController.update(`treki/${req.params.id}`, {location: req.body.location, updatedAt})
       .then(() => {
         res.status(200).json({
           message: 'Succeed updating treki location'
@@ -172,7 +190,8 @@ module.exports = {
     firebaseController.getKeyByParameterValue('treki','device_id',req.params.device_id)
       .then((key) => {
         if(key !== null) {
-          firebaseController.set(`treki/${key}/location`, req.body.location)
+          let updatedAt = Date.now();
+          firebaseController.update(`treki/${key}`, {location: req.body.location, updatedAt})
             .then(() => {
               res.status(200).json({
                 message: "Succeed updating location"
