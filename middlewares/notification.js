@@ -19,7 +19,12 @@ module.exports = {
                     icon: "ic_launcher",
                     body: name
                   },
-                  data: { deviceFound: 'Your Device is tracked by someone near it !' }
+                  data: {
+                    title: "Your Device is tracked by someone near it !",
+                    icon: "ic_launcher",
+                    body: name, 
+                    deviceFound: 'Your Device is tracked by someone near it !'
+                  }
                 });
                 
                 let regTokens = [tokenDevice];

@@ -183,12 +183,6 @@ module.exports = {
           err
         })
       })
-
-    // get user id berdasarkan device id
-    // dari user id yang ada, cari di collection token utk dapetin device id nya
-    // panggil function push notification dengan kirim parameter device id yang di dapatkan tadi
-    // tambahkan kondisi2 tertentu
-
   },
 
   updateOtherTrekiLocation: (req, res) => {
@@ -217,22 +211,48 @@ module.exports = {
           err
         })
       })
-    },
+  },
 
-    getTrekiByUserId: (req, res) => {
-      logger.info(`Get all treki devices for user ${req.params.user_id}`);
-      firebaseController.getDataByParameterValue('treki', 'user_id', req.params.user_id)
-        .then((data) => {
-          res.status(200).json({
-            message: "Succeed getting all treki devices by id",
-            data
-          })
+  getTrekiByUserId: (req, res) => {
+    logger.info(`Get all treki devices for user ${req.params.user_id}`);
+    firebaseController.getDataByParameterValue('treki', 'user_id', req.params.user_id)
+      .then((data) => {
+        res.status(200).json({
+          message: "Succeed getting all treki devices by id",
+          data
         })
-        .catch((err) => {
-          res.status(500).json({
-            message: "Error verifying device",
-            err
-          })
+      })
+      .catch((err) => {
+        res.status(500).json({
+          message: "Error verifying device",
+          err
         })
-    },
+      })
+  },
+
+  pushNotificationTestTrigger: (req, res) => {
+    var sender = new gcm.Sender('AAAAHqRJ4Cw:APA91bHFV-fHw1ST4tEggO2J_I35HEIlQSAicBSnUyK41ke78ypZ5Ol5HhzuWJbKb78MqvQQjy1gu7xboQq-e16Lr6mIGk-rDIyDHYY1dQBqfCJukiF8FGSfDy6c_VsVwSUc8crc7wjO');
+    var message = new gcm.Message({
+      priority: 'high',
+      contentAvailable: true,
+      notification: {
+        title: "Pagi mz",
+        icon: "ic_launcher",
+        body: "Bagi duit dong !!!"
+      },
+      data: { 
+        title: "Pagi mz",
+        icon: "ic_launcher",
+        body: "Bagi duit dong !!!",
+        deviceFound: 'Your Device is tracked by someone near it !'
+      }
+    });
+    
+    var regTokens = ['f_JHYYsyn1Y:APA91bHMcH2m_j4nxGHhBkIK0ofwFmD-Tc3hUkA_gCabGKnSHrWZo2py-q9Tf0NTAmumXoGSPtAXW1GDqdU_E_6r9Lc3AC-JlMH0M2J_yK_0q---n1Tzxk0S55eubj6aX_5XybXm18g2'];
+    
+    sender.send(message, { registrationTokens: regTokens }, function (err, response) {
+        if (err) console.error(err);
+        else console.log(response);
+    });
+  }
 }

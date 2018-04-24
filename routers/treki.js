@@ -11,6 +11,7 @@ const {
   updateOtherTrekiLocation,
   getTrekiByUserId,
   createv2,
+  pushNotificationTestTrigger,
   updateState
 } = require('../controllers/treki.controllers');
 const { pushNotification } = require('../middlewares/notification')
@@ -24,6 +25,7 @@ const upload = multer({
 })
 
 router.post('/createv2',upload.single('image'), sendUploadToGCS ,createv2);
+router.get('/pushnotification', pushNotificationTestTrigger);
 router.get('/', findAll);
 router.post('/', create);
 
