@@ -15,19 +15,12 @@ module.exports = {
       .then((data) => {
         res.status(200).json({
           message: 'Succeed getting all users',
-          data: data
+          data
         });
       })
-      .catch((err) => {
-        res.status(500).json({
-          message: 'Error get all users',
-          err
-        });
-      });
   },
 
   update: (req, res) => {
-    // let { name, email } = req.body
     let updatedAt = Date.now();
     firebaseController.set(`users/${req.params.id}`,{ ...req.body, updatedAt })
       .then((data) => {
@@ -68,7 +61,7 @@ module.exports = {
       .then((data) => {
         res.status(201).json({
           message: 'Succeed adding new user',
-          data : data 
+          data 
         });
       })
       .catch((err) => {
@@ -84,7 +77,7 @@ module.exports = {
       .then((data) => {
         res.status(200).json({
           message: 'Succeed getting user by id',
-          data: data
+          data
         });
       })
       .catch((err) => {

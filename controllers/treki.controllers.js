@@ -23,13 +23,13 @@ module.exports = {
           data
         });
       })
-      // .catch((err) => {
-      //   logger.error('Cannot get all treki devices data')
-      //   res.status(500).json({
-      //     message: 'Error get all treki devices',
-      //     err
-      //   });
-      // });
+      .catch((err) => {
+        logger.error('Cannot get all treki devices data')
+        res.status(500).json({
+          message: 'Error get all treki devices',
+          err
+        });
+      });
   },
 
   update: (req, res) => {
@@ -42,13 +42,13 @@ module.exports = {
           message: 'Succeed updating treki device'
         })
       })
-      // .catch((err) => {
-      //   logger.error(`Cannot update treki device id ${req.params.id}`);
-      //   res.status(500).json({
-      //     message: 'Error updating treki device',
-      //     err
-      //   });
-      // });
+      .catch((err) => {
+        logger.error(`Cannot update treki device id ${req.params.id}`);
+        res.status(500).json({
+          message: 'Error updating treki device',
+          err
+        });
+      });
   },
 
   destroy: (req, res) => {
@@ -59,13 +59,13 @@ module.exports = {
           message: 'Succeed removing treki device'
         });
       })
-      // .catch((err) => {
-      //   logger.error(`Cannot remove treki device id ${req.params.id}`);
-      //   res.status(500).json({
-      //     message: 'Error removing treki device',
-      //     err
-      //   });
-      // });
+      .catch((err) => {
+        logger.error(`Cannot remove treki device id ${req.params.id}`);
+        res.status(500).json({
+          message: 'Error removing treki device',
+          err
+        });
+      });
   },
 
   create: (req, res) => {
@@ -141,13 +141,13 @@ module.exports = {
           data
         });
       })
-      // .catch((err) => {
-      //   logger.error(`Cannot get treki device id ${req.params.id}`);
-      //   res.status(500).json({
-      //     message: 'Error getting treki device by id',
-      //     err
-      //   })
-      // })
+      .catch((err) => {
+        logger.error(`Cannot get treki device id ${req.params.id}`);
+        res.status(500).json({
+          message: 'Error getting treki device by id',
+          err
+        })
+      })
   },
   
   updateState: (req, res) => {
@@ -222,12 +222,12 @@ module.exports = {
           data
         })
       })
-      // .catch((err) => {
-      //   res.status(500).json({
-      //     message: "Error verifying device",
-      //     err
-      //   })
-      // })
+      .catch((err) => {
+        res.status(500).json({
+          message: "Error verifying device",
+          err
+        })
+      })
   },
 
   pushNotificationTestTrigger: (req, res) => {

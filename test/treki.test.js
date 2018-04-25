@@ -213,6 +213,4 @@ describe('API /treki', () => {
       })
     })
   })
-
-
 })

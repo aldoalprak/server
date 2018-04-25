@@ -3,6 +3,11 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "nyc": {
+    "exclude": [
+      "middlewares"
+    ]
+  },
   "scripts": {
     "test": "nyc mocha --timeout=3000 --exit",
     "start": "node server.js"

@@ -33,8 +33,8 @@ app.get('/', (req, res) => {
   res.status(200).json({message: 'Treki API'})
 })
 
-// app.listen(PORT, () => {
-//   console.log('Treki API listening on PORT 3000..')
-// })
+app.listen(PORT, () => {
+  console.log('Treki API listening on PORT 3000..')
+})
 
 module.exports = app
