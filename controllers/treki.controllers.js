@@ -248,11 +248,13 @@ module.exports = {
       }
     });
     
-    var regTokens = ['f_JHYYsyn1Y:APA91bHMcH2m_j4nxGHhBkIK0ofwFmD-Tc3hUkA_gCabGKnSHrWZo2py-q9Tf0NTAmumXoGSPtAXW1GDqdU_E_6r9Lc3AC-JlMH0M2J_yK_0q---n1Tzxk0S55eubj6aX_5XybXm18g2'];
+    var regTokens = ['enNnVCO0CQg:APA91bH-Rx7zOsLuRzsMO5daB0d1CMAtMEsl-gejBfGK1azEJVBUm1QtMQZIABCmfjgYDeSwylmrGhnZMVVa3zkLUYq_OePuvMLY_OAf5iSAAAjS8GjA-rw9cRmN4xs-jtYO66akGJEu'];
     
     sender.send(message, { registrationTokens: regTokens }, function (err, response) {
-        if (err) console.error(err);
-        else console.log(response);
+      res.status(200).json({
+        message: `Push Notification Success`,
+        response
+      })
     });
   }
 }

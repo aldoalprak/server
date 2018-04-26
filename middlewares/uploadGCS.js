@@ -55,5 +55,6 @@ function sendUploadToGCS (req, res, next) {
 }
 
 module.exports = {
-  sendUploadToGCS
+  sendUploadToGCS,
+  getPublicUrl
 };

@@ -36,3 +36,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log('Treki API listening on PORT 3000..')
 })
+
+module.exports = app

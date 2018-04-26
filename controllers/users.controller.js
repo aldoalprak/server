@@ -18,21 +18,15 @@ module.exports = {
           data
         });
       })
-      .catch((err) => {
-        res.status(500).json({
-          message: 'Error get all users',
-          err
-        });
-      });
   },
 
   update: (req, res) => {
-    // let { name, email } = req.body
     let updatedAt = Date.now();
     firebaseController.set(`users/${req.params.id}`,{ ...req.body, updatedAt })
       .then((data) => {
         res.status(200).json({
-          message: 'Succeed updating user'
+          message: 'Succeed updating user',
+          data: data
         })
       })
       .catch((err) => {
@@ -47,7 +41,8 @@ module.exports = {
     firebaseController.remove(`users/${req.params.id}`)
       .then(() => {
         res.status(200).json({
-          message: 'Succeed removing user'
+          message: 'Succeed removing user',
+          data: data
         });
       })
       .catch((err) => {
@@ -60,12 +55,13 @@ module.exports = {
 
   create: (req, res) => {
     let { name, email } = req.body;
-    updatedAt = Date.now();
-    createdAt = Date.now();
+    let updatedAt = Date.now();
+    let createdAt = Date.now();
     firebaseController.push('users', { name, email, updatedAt, createdAt })
-      .then(() => {
+      .then((data) => {
         res.status(201).json({
-          message: 'Succeed adding new user'
+          message: 'Succeed adding new user',
+          data 
         });
       })
       .catch((err) => {

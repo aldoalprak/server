@@ -3,8 +3,13 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "nyc": {
+    "exclude": [
+      "middlewares"
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "nyc mocha --timeout=3000 --exit",
     "start": "node server.js"
   },
   "repository": {
@@ -19,13 +24,19 @@
   "homepage": "https://github.com/treki-app/server#readme",
   "dependencies": {
     "body-parser": "^1.18.2",
+    "chai": "^4.1.2",
+    "chai-http": "^4.0.0",
     "cors": "^2.8.4",
     "dotenv": "^5.0.1",
     "express": "^4.16.3",
     "firebase-admin": "^5.12.0",
     "lodash": "^4.17.5",
+    "mocha": "^5.1.1",
     "morgan": "^1.9.0",
     "multer": "^1.3.0",
     "node-gcm": "^0.14.10"
+  },
+  "devDependencies": {
+    "nyc": "^11.7.1"
   }
 }
